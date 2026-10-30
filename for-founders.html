@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Founders | Will Beller</title>
+  <link rel="stylesheet" href="site.css">
+  <style>
+    .page {
+      padding: 96px 0 112px;
+    }
+
+    .eyebrow {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .page h1 {
+      font-size: clamp(2.6rem, 8vw, 5.5rem);
+      font-weight: 800;
+      letter-spacing: -0.045em;
+      line-height: 0.98;
+    }
+
+    .page h1 span { color: var(--accent); }
+
+    /* Holds the For Founders copy until will-beller-site-copy.md is added */
+    .copy-placeholder {
+      margin-top: 56px;
+      max-width: 760px;
+      padding: 48px 32px;
+      border: 1px dashed #333;
+      border-radius: var(--radius);
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 48px;
+    }
+
+    @media (max-width: 700px) {
+      .page { padding: 64px 0 80px; }
+      .copy-placeholder { padding: 32px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav" aria-label="Main">
+  <div class="site-nav-inner">
+    <a class="site-logo" href="index.html">Will Beller</a>
+    <ul class="site-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="for-founders.html" aria-current="page">For Founders</a></li>
+      <li><a href="work.html">My Work</a></li>
+    </ul>
+    <!-- TODO: booking link -->
+    <a class="btn btn-primary btn-sm" href="#">Book a call</a>
+  </div>
+</nav>
+
+<main class="page">
+  <div class="wrap">
+    <p class="eyebrow">For Founders</p>
+    <h1>For Founders<span>.</span></h1>
+
+    <div class="copy-placeholder">
+      <p class="ph">[For Founders copy from will-beller-site-copy.md goes here]</p>
+    </div>
+
+    <div class="cta-row">
+      <!-- TODO: booking link -->
+      <a class="btn btn-primary" href="#">Book a 20 min call</a>
+      <a class="btn btn-ghost" href="work.html">See my work &rarr;</a>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span class="footer-name">Will Beller</span>
+    <ul class="footer-links">
+      <li><a href="mailto:wilhelm.beller@gmail.com">wilhelm.beller@gmail.com</a></li>
+      <!-- TODO: LinkedIn and First Strike links -->
+      <li><a href="#">LinkedIn</a></li>
+      <li><a href="#">First Strike</a></li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>

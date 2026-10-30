@@ -1,192 +1,222 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Will Beller â Portfolio</title>
+  <title>Will Beller | Creative That Wins</title>
+  <meta name="description" content="Meta ads that make DTC brands money, not just noise. Creative Strategist and Creative Lead for ecommerce brands.">
+  <link rel="stylesheet" href="site.css">
   <style>
-    :root {
-      --bg: #0c0c0c;
-      --surface: #161616;
-      --border: #252525;
-      --text: #f0f0f0;
-      --muted: #666;
-      --accent: #d4ff00;
-      --radius: 10px;
-    }
+    section { padding: 112px 0; }
+    section + section { border-top: 1px solid var(--border); }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      line-height: 1.5;
-    }
-
-    /* ââ Header ââ */
-    header {
-      padding: 56px 48px 44px;
-      max-width: 1240px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .header-left h1 {
-      font-size: 2.6rem;
-      font-weight: 700;
-      letter-spacing: -0.03em;
-    }
-
-    .header-left p {
+    .eyebrow {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
       color: var(--muted);
-      font-size: 0.95rem;
-      margin-top: 5px;
-    }
-
-    .header-right {
-      font-size: 0.85rem;
-      color: var(--muted);
-      text-align: right;
-      line-height: 1.8;
-    }
-
-    .header-right a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    .header-right a:hover { text-decoration: underline; }
-
-    /* ââ Brand nav ââ */
-    .brand-nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(12,12,12,0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      padding: 0 48px;
-    }
-
-    .brand-nav-inner {
-      max-width: 1240px;
-      margin: 0 auto;
-      display: flex;
-      gap: 0;
-    }
-
-    .brand-nav a {
-      display: block;
-      padding: 14px 20px 12px;
-      font-size: 0.82rem;
-      color: var(--muted);
-      text-decoration: none;
-      border-bottom: 2px solid transparent;
-      transition: color 0.15s, border-color 0.15s;
-      white-space: nowrap;
-    }
-
-    .brand-nav a:hover {
-      color: var(--text);
-    }
-
-    .brand-nav a.active {
-      color: var(--accent);
-      border-bottom-color: var(--accent);
-    }
-
-    /* ââ Main content ââ */
-    main {
-      max-width: 1240px;
-      margin: 0 auto;
-      padding: 0 48px 100px;
-    }
-
-    /* ââ Brand section ââ */
-    .brand-section {
-      padding-top: 64px;
-    }
-
-    .brand-section + .brand-section {
-      border-top: 1px solid var(--border);
-      margin-top: 72px;
-    }
-
-    .brand-header {
-      margin-bottom: 28px;
-    }
-
-    .brand-name {
-      font-size: 1.9rem;
-      font-weight: 700;
-      letter-spacing: -0.025em;
-      margin-bottom: 18px;
-    }
-
-    /* ââ Roles row ââ */
-    .roles-row {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
       margin-bottom: 20px;
     }
 
-    .roles-label {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--muted);
-      margin-right: 4px;
+    .big {
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      font-weight: 700;
+      letter-spacing: -0.035em;
+      line-height: 1.08;
+      max-width: 900px;
     }
 
-    .tag {
-      font-size: 0.7rem;
-      padding: 3px 12px;
-      border-radius: 100px;
-      font-weight: 500;
-      letter-spacing: 0.02em;
+    /* ── Hero ── */
+    .hero {
+      position: relative;
+      min-height: calc(100svh - 64px);
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      padding: 80px 0;
     }
 
-    .tag-edited             { background: #0f2010; color: #6fcf6f; border: 1px solid #1e4020; }
-    .tag-creative-strategy  { background: #0f1228; color: #7b9fff; border: 1px solid #1a2050; }
-    .tag-director           { background: #281010; color: #ff8a8a; border: 1px solid #501a1a; }
-    .tag-producer           { background: #201608; color: #ffb347; border: 1px solid #40280a; }
-    .tag-cinematography     { background: #0e2222; color: #5ecfcf; border: 1px solid #1a4040; }
-    .tag-color-grade        { background: #1c0e28; color: #c97bff; border: 1px solid #38186a; }
-    .tag-motion-graphics    { background: #201a08; color: #ffd966; border: 1px solid #40320a; }
-    .tag-sound-design       { background: #0e1422; color: #80a8ff; border: 1px solid #1a2648; }
-    .tag-head               { background: #220e1a; color: #f07fcf; border: 1px solid #481030; }
-    .tag-agency             { background: #1a1a10; color: #e0cc60; border: 1px solid #3a3410; }
-    .tag-default            { background: #1c1c1c; color: #888; border: 1px solid #303030; }
-
-    /* ââ Brand description ââ */
-    .brand-description {
-      font-size: 0.92rem;
-      color: #aaa;
-      line-height: 1.75;
-      max-width: 760px;
+    .hero-chart {
+      position: absolute;
+      inset: 12% 0 18% 0;
+      width: 100%;
+      height: 70%;
+      pointer-events: none;
     }
 
-    .brand-description.placeholder {
-      color: #3a3a3a;
-      font-style: italic;
+    .hero-chart .line {
+      fill: none;
+      stroke: var(--accent);
+      stroke-width: 3;
+      stroke-linejoin: round;
+      stroke-linecap: round;
+      vector-effect: non-scaling-stroke;
+      filter: drop-shadow(0 0 12px rgba(212,255,0,0.35));
     }
 
-    /* ââ Video grid ââ */
-    .video-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 16px;
+    .hero-chart .area { fill: url(#areaFill); }
+
+    .hero-content { position: relative; z-index: 1; }
+
+    /* Soft dark scrim so the chart line never fights the hero copy */
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background: radial-gradient(ellipse 60% 55% at 30% 55%, rgba(12,12,12,0.85) 0%, rgba(12,12,12,0.55) 45%, rgba(12,12,12,0) 75%);
+    }
+
+    .hero-sub, .hero-lede { text-shadow: 0 2px 16px rgba(12,12,12,0.9); }
+
+    .hero h1 {
+      font-size: clamp(3.2rem, 11vw, 8.5rem);
+      font-weight: 800;
+      letter-spacing: -0.05em;
+      line-height: 0.92;
+      text-shadow: 0 4px 40px rgba(0,0,0,0.6);
+    }
+
+    .hero h1 span { color: var(--accent); }
+
+    .hero-sub {
       margin-top: 32px;
+      font-size: clamp(1.15rem, 2.4vw, 1.6rem);
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      max-width: 640px;
     }
 
-    /* ââ Card ââ */
-    .card {
+    .hero-lede {
+      margin-top: 12px;
+      color: #b0b0b0;
+      font-size: 1rem;
+      max-width: 520px;
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 36px;
+    }
+
+    .trust {
+      margin-top: 56px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .trust strong { color: #d0d0d0; font-weight: 600; }
+    .trust .dot { color: #444; }
+
+    /* ── Numbers ── */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .stat-value {
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: var(--accent);
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .stat-label {
+      margin-top: 12px;
+      color: #b0b0b0;
+      font-size: 0.95rem;
+      max-width: 220px;
+    }
+
+    .stats-note {
+      margin-top: 48px;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    /* ── Pitch ── */
+    .pitch-body {
+      margin-top: 32px;
+      font-size: clamp(1.05rem, 2vw, 1.3rem);
+      color: #c0c0c0;
+      max-width: 720px;
+      line-height: 1.6;
+    }
+
+    .pitch-close {
+      margin-top: 28px;
+      font-size: clamp(1.3rem, 2.6vw, 1.8rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    /* ── Measure tiles ── */
+    .tiles {
+      margin-top: 48px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .tile {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+    }
+
+    .tile svg {
+      width: 32px;
+      height: 32px;
+      stroke: var(--accent);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .tile h3 {
+      margin-top: 20px;
+      font-size: 1.1rem;
+      letter-spacing: -0.01em;
+    }
+
+    .tile p {
+      margin-top: 8px;
+      color: #a0a0a0;
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    /* ── Featured work ── */
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .work-grid {
+      margin-top: 48px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .work-card {
+      display: block;
+      text-decoration: none;
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius);
@@ -194,208 +224,361 @@
       transition: border-color 0.2s, transform 0.2s;
     }
 
-    .card:hover {
-      border-color: #3a3a3a;
-      transform: translateY(-2px);
-    }
+    .work-card:hover { border-color: #3a3a3a; transform: translateY(-3px); }
 
-    .card-video-wrap {
-      width: 100%;
-      aspect-ratio: 9/16;
+    .work-thumb {
+      aspect-ratio: 4/5;
       background: #000;
+      overflow: hidden;
     }
 
-    .card-video-wrap video {
+    .work-thumb img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
     }
 
-    .card-body {
-      padding: 18px 20px 20px;
+    .work-body { padding: 22px 22px 24px; }
+
+    .work-body h3 { font-size: 1.2rem; letter-spacing: -0.015em; }
+
+    .work-body p {
+      margin-top: 8px;
+      color: #a0a0a0;
+      font-size: 0.92rem;
     }
 
-    .card-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 6px;
-    }
-
-    .card-label {
-      font-size: 0.66rem;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      font-weight: 500;
-    }
-
-    .card-year {
-      font-size: 0.7rem;
-      color: var(--muted);
-    }
-
-    .card-title {
-      font-size: 1rem;
+    .work-result {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
       font-weight: 600;
-      margin-bottom: 8px;
-      letter-spacing: -0.01em;
+      font-size: 0.95rem;
     }
 
-    .card-desc {
-      font-size: 0.83rem;
-      color: #888;
-      line-height: 1.65;
-      margin-bottom: 14px;
+    /* ── Testimonial ── */
+    .quote {
+      font-size: clamp(1.6rem, 4vw, 2.8rem);
+      font-weight: 600;
+      letter-spacing: -0.025em;
+      line-height: 1.2;
+      max-width: 960px;
     }
 
-    .card-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
+    .quote::before { content: "\201C"; color: var(--accent); }
+    .quote::after { content: "\201D"; color: var(--accent); }
+
+    .quote-by { margin-top: 28px; color: var(--muted); }
+    .quote-by strong { color: var(--text); font-weight: 600; }
+
+    /* ── Split CTA ── */
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
     }
 
-    /* ââ Lite embed (click-to-play) ââ */
-    .lite-embed {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      cursor: pointer;
-      background: #000;
-    }
-
-    .lite-embed img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .play-btn {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 0;
-      transition: transform 0.15s;
-    }
-
-    .play-btn:hover { transform: scale(1.08); }
-
-    .lite-embed iframe {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-
-    /* ââ Empty video state ââ */
-    .videos-empty {
-      margin-top: 32px;
-      padding: 40px 28px;
-      border: 1px dashed #282828;
+    .split-card {
+      border: 1px solid var(--border);
       border-radius: var(--radius);
-      color: #333;
-      font-size: 0.82rem;
-      text-align: center;
+      padding: 44px 36px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 28px;
+      background: var(--surface);
     }
 
-    /* ââ Responsive ââ */
-    @media (max-width: 700px) {
-      header {
-        padding: 36px 24px 28px;
-        flex-direction: column;
-        gap: 14px;
-        align-items: flex-start;
-      }
+    .split-card.accent {
+      background: var(--accent);
+      color: var(--accent-ink);
+      border-color: var(--accent);
+    }
 
-      .header-right { text-align: left; }
-      .brand-nav { padding: 0 24px; }
-      main { padding: 0 24px 60px; }
-      .brand-section { padding-top: 44px; }
-      .brand-section + .brand-section { margin-top: 48px; }
-      .video-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .split-card h2 {
+      font-size: clamp(1.5rem, 3vw, 2.1rem);
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+    }
+
+    .split-card.accent .btn {
+      background: var(--accent-ink);
+      color: var(--accent);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 960px) {
+      .stats, .tiles { grid-template-columns: repeat(2, 1fr); }
+      .stats { row-gap: 44px; }
+      .work-grid { grid-template-columns: 1fr; max-width: 480px; }
+    }
+
+    @media (max-width: 700px) {
+      section { padding: 72px 0; }
+      .hero { min-height: calc(100svh - 96px); padding: 56px 0; }
+      .hero-chart { inset: 30% 0 auto 0; height: 50%; }
+      .trust { margin-top: 40px; font-size: 0.85rem; }
+      .split { grid-template-columns: 1fr; }
+      .split-card { padding: 32px 24px; }
+    }
+
+    @media (max-width: 420px) {
+      .tiles { grid-template-columns: 1fr; }
+      .cta-row .btn { flex: 1 1 100%; }
     }
   </style>
 </head>
 <body>
-<header>
-  <div class="header-left">
-    <h1>Will Beller</h1>
-    <p>Video Production &amp; Creative Strategy</p>
-  </div>
-  <div class="header-right">
-    <a href="mailto:wilhelm.beller@gmail.com">wilhelm.beller@gmail.com</a>
-  </div>
-</header>
-<nav class="brand-nav">
-  <div class="brand-nav-inner">
-    <a href="#pelsbarn">Pelsbarn</a>
-    <a href="#katkin">KatKin</a>
-    <a href="#petlab-co">PetLab Co.</a>
+
+<nav class="site-nav" aria-label="Main">
+  <div class="site-nav-inner">
+    <a class="site-logo" href="index.html">Will Beller</a>
+    <ul class="site-links">
+      <li><a href="index.html" aria-current="page">Home</a></li>
+      <li><a href="for-founders.html">For Founders</a></li>
+      <li><a href="work.html">My Work</a></li>
+    </ul>
+    <!-- TODO: booking link -->
+    <a class="btn btn-primary btn-sm" href="#">Book a call</a>
   </div>
 </nav>
-<main id="main"></main>
+
+<main>
+
+  <!-- 1. Hero -->
+  <section class="hero">
+    <svg class="hero-chart" viewBox="0 0 1200 600" preserveAspectRatio="none" aria-hidden="true">
+      <defs>
+        <linearGradient id="areaFill" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#d4ff00" stop-opacity="0.22"/>
+          <stop offset="100%" stop-color="#d4ff00" stop-opacity="0"/>
+        </linearGradient>
+        <clipPath id="reveal">
+          <rect id="revealRect" x="0" y="0" width="0" height="600"/>
+        </clipPath>
+      </defs>
+      <g clip-path="url(#reveal)">
+        <path class="area" d="M0,470 L60,455 L110,482 L160,458 L210,476 L260,448 L310,472 L360,444 L410,466 L460,440 L520,428 L580,404 L640,378 L700,332 L760,302 L820,242 L880,210 L940,152 L1000,120 L1060,82 L1120,58 L1200,30 L1200,600 L0,600 Z"/>
+        <path class="line" d="M0,470 L60,455 L110,482 L160,458 L210,476 L260,448 L310,472 L360,444 L410,466 L460,440 L520,428 L580,404 L640,378 L700,332 L760,302 L820,242 L880,210 L940,152 L1000,120 L1060,82 L1120,58 L1200,30"/>
+      </g>
+    </svg>
+
+    <div class="wrap hero-content">
+      <h1>Creative<br>That Wins<span>.</span></h1>
+      <p class="hero-sub">Meta ads that make DTC brands money, not just noise.</p>
+      <p class="hero-lede">Creative Strategist and Creative Lead for ecommerce brands that want winners at scale.</p>
+      <div class="cta-row">
+        <!-- TODO: booking link -->
+        <a class="btn btn-primary" href="#">Book a call</a>
+        <a class="btn btn-ghost" href="for-founders.html">For Founders &rarr;</a>
+      </div>
+      <div class="trust">
+        <strong>PetLab Co.</strong><span class="dot">&middot;</span>
+        <strong>KatKin</strong><span class="dot">&middot;</span>
+        <strong>Pelsbarn</strong><span class="dot">&middot;</span>
+        <span class="ph">[other permitted logos]</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Numbers band -->
+  <section>
+    <div class="wrap">
+      <!--
+        Real, shareable figures only. To animate one, swap the placeholder for the
+        final display text and add data-count, e.g.
+        <div class="stat-value" data-count="2500000" data-prefix="£" data-suffix="+">£2,500,000+</div>
+      -->
+      <div class="stats">
+        <div>
+          <div class="stat-value">[£X]</div>
+          <p class="stat-label">ad spend I've written creative for</p>
+        </div>
+        <div>
+          <div class="stat-value">[X]</div>
+          <p class="stat-label">ads briefed and shipped</p>
+        </div>
+        <div>
+          <div class="stat-value">[X]x</div>
+          <p class="stat-label">ROAS on top performers</p>
+        </div>
+        <div>
+          <div class="stat-value">[X] years</div>
+          <p class="stat-label">in DTC performance creative</p>
+        </div>
+      </div>
+      <p class="stats-note">Numbers from real accounts. Happy to walk you through them on a call.</p>
+    </div>
+  </section>
+
+  <!-- 3. The pitch -->
+  <section>
+    <div class="wrap">
+      <h2 class="big">Most creative gets judged on how it looks. Mine gets judged on what it makes.</h2>
+      <p class="pitch-body">ROAS that holds as you scale. CPA that comes down, not up. AOV and margin protected, not traded for a cheap conversion.</p>
+      <p class="pitch-close">That's the job.</p>
+    </div>
+  </section>
+
+  <!-- 4. What I measure -->
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">What I measure</p>
+      <div class="tiles">
+        <div class="tile">
+          <svg viewBox="0 0 32 32" aria-hidden="true"><polyline points="4,24 12,16 18,20 28,8"/><polyline points="21,8 28,8 28,15"/></svg>
+          <h3>ROAS at scale</h3>
+          <p>A winner holds as budget grows, not one good day.</p>
+        </div>
+        <div class="tile">
+          <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="12"/><polyline points="16,9 16,16 21,19"/></svg>
+          <h3>CPA</h3>
+          <p>The number that decides if you can keep spending.</p>
+        </div>
+        <div class="tile">
+          <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 10h20l-2 14H8z"/><path d="M12 10a4 4 0 0 1 8 0"/></svg>
+          <h3>AOV and margin</h3>
+          <p>The cheapest upsell often makes you the least money.</p>
+        </div>
+        <div class="tile">
+          <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M3 16s5-9 13-9 13 9 13 9-5 9-13 9S3 16 3 16z"/><circle cx="16" cy="16" r="4"/></svg>
+          <h3>Hook and hold rate</h3>
+          <p>The leading signal, never the finish line.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Featured work -->
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Featured work</p>
+          <h2 class="big">Creative that earned its budget.</h2>
+        </div>
+        <a class="btn btn-ghost" href="work.html">See all work &rarr;</a>
+      </div>
+      <div class="work-grid">
+        <a class="work-card" href="work.html#katkin">
+          <div class="work-thumb"><img src="https://i.ytimg.com/vi/r-MDqRWYN7A/hqdefault.jpg" alt="KatKin ad still" loading="lazy"></div>
+          <div class="work-body">
+            <h3>KatKin</h3>
+            <p>Video editing and creative strategy for the Meta growth team, through FSVP.</p>
+            <p class="work-result ph">[Result placeholder]</p>
+          </div>
+        </a>
+        <a class="work-card" href="work.html#petlab-co">
+          <div class="work-thumb"><img src="https://i.ytimg.com/vi/ybvUw7EqwhM/hqdefault.jpg" alt="PetLab Co. ad still" loading="lazy"></div>
+          <div class="work-body">
+            <h3>PetLab Co.</h3>
+            <p>High-performing ads built directly with the founder and Head of Innovation.</p>
+            <p class="work-result ph">[Result placeholder]</p>
+          </div>
+        </a>
+        <a class="work-card" href="work.html#pelsbarn">
+          <div class="work-thumb"><img src="https://i.ytimg.com/vi/6qRAQwt2bAI/hqdefault.jpg" alt="Pelsbarn ad still" loading="lazy"></div>
+          <div class="work-body">
+            <h3>Pelsbarn</h3>
+            <p>From Senior Video Editor to Creative Strategy to Head of Marketing and Brand.</p>
+            <p class="work-result ph">[Result placeholder]</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Testimonial -->
+  <section>
+    <div class="wrap">
+      <blockquote>
+        <p class="quote"><span class="ph">[KatKin testimonial]</span></p>
+        <p class="quote-by"><strong class="ph">[Name]</strong>, <span class="ph">[Role]</span>, KatKin</p>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- 7. Split CTA -->
+  <section>
+    <div class="wrap split">
+      <div class="split-card">
+        <h2>Founder with ads that have stalled?</h2>
+        <a class="btn btn-ghost" href="for-founders.html">For Founders &rarr;</a>
+      </div>
+      <div class="split-card accent">
+        <h2>Ready to talk?</h2>
+        <!-- TODO: booking link -->
+        <a class="btn" href="#">Book a 20 min call</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span class="footer-name">Will Beller</span>
+    <ul class="footer-links">
+      <li><a href="mailto:wilhelm.beller@gmail.com">wilhelm.beller@gmail.com</a></li>
+      <!-- TODO: LinkedIn and First Strike links -->
+      <li><a href="#">LinkedIn</a></li>
+      <li><a href="#">First Strike</a></li>
+    </ul>
+  </div>
+</footer>
+
 <script>
-const BRANDS = [
-  {
-    id: "pelsbarn",
-    name: "Pelsbarn",
-    roles: ["Head of Marketing", "Video Editor", "Creative Strategist"],
-    description: "I joined Pelsbarn as a Senior Video Editor before progressing into Creative Strategy and, most recently, into the role of Head of Marketing &amp; Brand. The work featured here spans my time as a Video Editor and Creative Strategist â a period defined by high-volume creative output, performance-led thinking, and a consistent hand in shaping the brand's visual identity.",
-    videos: [
-      { video_url: "https://youtube.com/shorts/6qRAQwt2bAI", title: "Pelsbarn â Video 1", tags: ["Video Editor"] },
-      { video_url: "https://youtube.com/shorts/lB-xQm1ZDxI", title: "Pelsbarn â Video 2", tags: ["Video Editor"] },
-      { video_url: "https://youtube.com/shorts/JwnLDOvhfSE", title: "Pelsbarn â Video 3", tags: ["Video Editor"] },
-      { video_url: "https://youtube.com/shorts/6cz8OVBu70Q", title: "Pelsbarn â Video 4", tags: ["Video Editor"] },
-      { video_url: "https://youtube.com/shorts/Kr1BIoq2mvY", title: "Pelsbarn â Video 5", tags: ["Video Editor"] },
-      { video_url: "https://youtube.com/shorts/Gwr0U9_YABk", title: "Pelsbarn â Video 6", tags: ["Video Editor"] },
-      { video_url: "https://youtube.com/shorts/aUse0K8mn7I", title: "Pelsbarn â Video 7", tags: ["Video Editor"] },
-      { video_url: "https://youtube.com/shorts/wvhu5fZGaAQ", title: "Pelsbarn â Video 8", tags: ["Video Editor"] },
-      { video_url: "https://youtube.com/shorts/OVeuYCC77VQ", title: "Pelsbarn â Video 9", tags: ["Video Editor"] }
-    ]
-  },
-  {
-    id: "katkin",
-    name: "KatKin",
-    roles: ["Freelance Agency Provider", "Video Editor", "Creative Strategist"],
-    description: "My work with KatKin has been delivered through my agency, FSVP. Over three years, we've provided their Meta Growth Team with video editing and creative consultancy â developing a number of long-running, best-performing ads throughout 2024 and 2025. The partnership is grounded in a deep understanding of their audience and a consistent track record of creative that converts.",
-    videos: [
-      { video_url: "https://youtube.com/shorts/r-MDqRWYN7A", title: "KatKin â Video 1", tags: ["Video Editor", "Creative Strategist"] },
-      { video_url: "https://youtube.com/shorts/h1XdsauvpEQ", title: "KatKin â Video 2", tags: ["Video Editor", "Creative Strategist"] },
-      { video_url: "https://youtube.com/shorts/abcW0B1EDtg", title: "KaxKin â Video 3", tags: ["Video Editor", "Creative Strategist"] },
-      { video_url: "https://youtube.com/shorts/o8nFR5H9phA", title: "KatKin â Video 4", tags: ["Video Editor", "Creative Strategist"] },
-      { video_url: "https://youtube.com/shorts/d_lUACfDCXM", title: "KatKin â Video 5", tags: ["Video Editor", "Creative Strategist"] },
-      { video_url: "https://youtube.com/shorts/Fbz99fJmX7k", title: "KaxKin â Video 6", tags: ["Video Editor", "Creative Strategist"] }
-    ]
-  },
-  {
-    id: "petlab-co",
-    name: "PetLab Co.",
-    roles: ["Video Editor", "Content Producer"],
-    description: "PetLab Co. was my introduction to the DTC eCommerce space â and a formative one. Working directly with the founder and Head of Innovation, I developed a series of high-performing ads that consistently ranked among the brand's top creative. It was an experience that sharpened my instincts for performance creative at scale and gave me a strong foundation in what moves the needle in DTC.",
-    videos: [
-      { video_url: "https://youtube.com/shorts/ybvUw7EqwhM", title: "PetLab Co. â Video 1", tags: ["Video Editor", "Content Producer"] },
-      { video_url: "https://youtube.com/shorts/DJwl6GcbWj0", title: "PetLab Co. â Video 2", tags: ["Video Editor", "Content Producer"] },
-      { video_url: "https://youtube.com/shorts/qqKdoMpB3Sc", title: "PetLab Co. â Video 3", tags: ["Video Editor", "Content Producer"] },
-      { video_url: "https://youtube.com/shorts/gYLfhS48JUk", title: "PetLab Co. â Video 4", tags: ["Video Editor", "Content Producer"] }
-    ]
+// Hero chart: reveal the line left to right on load (about 1.5s)
+(function drawChart() {
+  const rect = document.getElementById("revealRect");
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduce) { rect.setAttribute("width", 1200); return; }
+  const duration = 1500;
+  const start = performance.now();
+  function frame(now) {
+    const t = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - t, 3);
+    rect.setAttribute("width", 1200 * eased);
+    if (t < 1) requestAnimationFrame(frame);
   }
-];
-const TAG_CLASSES = {"Edited":"tag-edited","Video Editor":"tag-edited","Creative Strategy":"tag-creative-strategy","Creative Strategist":"tag-creative-strategy","Director":"tag-director","Producer":"tag-producer","Content Producer":"tag-producer","Head of Marketing":"tag-head","Freelance Agency Provider":"tag-agency","Cinematography":"tag-cinematography","Color Grade":"tag-color-grade","Motion Graphics":"tag-motion-graphics","Sound Design":"tag-sound-design"};
-function tagClass(t){return TAG_CLASSES[t]||"tag-default";}
-function render(){const main=document.getElementById("main");main.innerHTML=BRANDS.map(brand=>{const rolesHTML=brand.roles.length?brand.roles.map(t=>`<span class="tag ${tagClass(t)}">${t}</span>`).join(""):"";const rolesRow=rolesHTML?`<div class="roles-row"><span class="roles-label">My role</span>${rolesHTML}</div>`:`<div class="roles-row"><span class="roles-label" style="color:#2a2a2a">Role to be added</span></div>`;const descHTML=brand.description?`<p class="brand-description">${brand.description}</p>`:`<p class="brand-description placeholder">Description to be added.</p>`;let videosHTML;if(brand.videos.length===0){videosHTML=`<div class="videos-empty">Videos will appear here once uploaded.</div>`;}else{const cards=brand.videos.map(v=>{const embedHTML=(()=>{const url=v.video_url||"";const yt=url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/shorts\/)([A-Za-z0-9_-]{11})/);if(yt){const id=yt[1];return `<div class="lite-embed" data-src="https://www.youtube.com/embed/${id}?autoplay=1&rel=0" onclick="loadEmbed(this)"><img src="https://i.ytimg.com/vi/${id}/hqdefault.jpg" alt="" loading="lazy"><button class="play-btn" aria-label="Play"><svg viewBox="0 0 48 48" width="52" height="52"><circle cx="24" cy="24" r="23" fill="rgba(0,0,0,0.55)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/><polygon points="20,16 34,24 20,32" fill="#d4ff00"/></svg></button></div>`;}return `<video controls preload="metadata"><source src="${url}" type="video/mp4"></video>`;})();return `<div class="card"><div class="card-video-wrap">${embedHTML}</div></div>`;}).join("");videosHTML<`<div class="video-grid">${cards}</div>`;}return `<section class="brand-section" id="${brand.id}"><div class="brand-header"><h2 class="brand-name">${brand.name}</h2>${rolesRow}${descHTML}</div>${videosHTML}</section>`;}).join("");}
-function updateNav(){const sections=document.querySelectorAll(".brand-section");const navLinks=document.querySelectorAll(".brand-nav a");let current="";sections.forEach(s=>{if(window.scrollY>=s.offsetTop-80)current=s.id;});navLinks.forEach(a=>{a.classList.toggle("active",a.getAttribute("href")==="#"+current);});}
-function loadEmbed(el){const iframe=document.createElement("iframe");iframe.src=el.dataset.src;iframe.allow="autoplay; fullscreen; picture-in-picture; accelerometer; clipboard-write; encrypted-media; gyroscope";iframe.allowFullscreen=true;el.innerHTML="";el.appendChild(iframe);}
-render();
-window.addEventListener("scroll",updateNav,{passive:true});
-updateNav();
+  requestAnimationFrame(frame);
+})();
+
+// Numbers band: count up any stat with data-count when it scrolls into view.
+// Placeholders without data-count are left as they are.
+(function countUp() {
+  const stats = document.querySelectorAll(".stat-value[data-count]");
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!stats.length || reduce || !("IntersectionObserver" in window)) return;
+
+  function format(el, n) {
+    const decimals = parseInt(el.dataset.decimals || "0", 10);
+    const value = n.toLocaleString("en-GB", { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
+    return (el.dataset.prefix || "") + value + (el.dataset.suffix || "");
+  }
+
+  function run(el) {
+    const target = parseFloat(el.dataset.count);
+    const duration = 1400;
+    const start = performance.now();
+    function frame(now) {
+      const t = Math.min((now - start) / duration, 1);
+      el.textContent = format(el, target * (1 - Math.pow(1 - t, 3)));
+      if (t < 1) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { run(e.target); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.5 });
+
+  stats.forEach(el => { el.textContent = format(el, 0); io.observe(el); });
+})();
 </script>
+
 </body>
 </html>

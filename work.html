@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Work | Will Beller</title>
+  <link rel="stylesheet" href="site.css">
+  <style>
+    /* ── Page header ── */
+    .page-header {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 56px 48px 40px;
+    }
+
+    .page-header h1 {
+      font-size: 2.6rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+
+    .page-header p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-top: 5px;
+    }
+
+    /* ── Brand nav ── */
+    .brand-nav {
+      position: sticky;
+      top: var(--site-nav-h, 64px);
+      z-index: 100;
+      background: rgba(12,12,12,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 48px;
+    }
+
+    .brand-nav-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: flex;
+      gap: 0;
+    }
+
+    .brand-nav a {
+      display: block;
+      padding: 14px 20px 12px;
+      font-size: 0.82rem;
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      transition: color 0.15s, border-color 0.15s;
+      white-space: nowrap;
+    }
+
+    .brand-nav a:hover {
+      color: var(--text);
+    }
+
+    .brand-nav a.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    /* ── Main content ── */
+    main {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 48px 100px;
+    }
+
+    /* ── Brand section ── */
+    .brand-section {
+      padding-top: 64px;
+      scroll-margin-top: 60px;
+    }
+
+    .brand-section + .brand-section {
+      border-top: 1px solid var(--border);
+      margin-top: 72px;
+    }
+
+    .brand-header {
+      margin-bottom: 28px;
+    }
+
+    .brand-name {
+      font-size: 1.9rem;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      margin-bottom: 18px;
+    }
+
+    /* ── Roles row ── */
+    .roles-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .roles-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-right: 4px;
+    }
+
+    .tag {
+      font-size: 0.7rem;
+      padding: 3px 12px;
+      border-radius: 100px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+
+    .tag-edited             { background: #0f2010; color: #6fcf6f; border: 1px solid #1e4020; }
+    .tag-creative-strategy  { background: #0f1228; color: #7b9fff; border: 1px solid #1a2050; }
+    .tag-director           { background: #281010; color: #ff8a8a; border: 1px solid #501a1a; }
+    .tag-producer           { background: #201608; color: #ffb347; border: 1px solid #40280a; }
+    .tag-cinematography     { background: #0e2222; color: #5ecfcf; border: 1px solid #1a4040; }
+    .tag-color-grade        { background: #1c0e28; color: #c97bff; border: 1px solid #38186a; }
+    .tag-motion-graphics    { background: #201a08; color: #ffd966; border: 1px solid #40320a; }
+    .tag-sound-design       { background: #0e1422; color: #80a8ff; border: 1px solid #1a2648; }
+    .tag-head               { background: #220e1a; color: #f07fcf; border: 1px solid #481030; }
+    .tag-agency             { background: #1a1a10; color: #e0cc60; border: 1px solid #3a3410; }
+    .tag-default            { background: #1c1c1c; color: #888; border: 1px solid #303030; }
+
+    /* ── Brand description ── */
+    .brand-description {
+      font-size: 0.92rem;
+      color: #aaa;
+      line-height: 1.75;
+      max-width: 760px;
+    }
+
+    .brand-description.placeholder {
+      color: #3a3a3a;
+      font-style: italic;
+    }
+
+    /* ── Video grid ── */
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    /* ── Card ── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .card:hover {
+      border-color: #3a3a3a;
+      transform: translateY(-2px);
+    }
+
+    .card-video-wrap {
+      width: 100%;
+      aspect-ratio: 9/16;
+      background: #000;
+    }
+
+    .card-video-wrap video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-body {
+      padding: 18px 20px 20px;
+    }
+
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+
+    .card-label {
+      font-size: 0.66rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 500;
+    }
+
+    .card-year {
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+
+    .card-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+
+    .card-desc {
+      font-size: 0.83rem;
+      color: #888;
+      line-height: 1.65;
+      margin-bottom: 14px;
+    }
+
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    /* ── Lite embed (click-to-play) ── */
+    .lite-embed {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+      background: #000;
+    }
+
+    .lite-embed img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .play-btn {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: transform 0.15s;
+    }
+
+    .play-btn:hover { transform: scale(1.08); }
+
+    .lite-embed iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* ── Empty video state ── */
+    .videos-empty {
+      margin-top: 32px;
+      padding: 40px 28px;
+      border: 1px dashed #282828;
+      border-radius: var(--radius);
+      color: #333;
+      font-size: 0.82rem;
+      text-align: center;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 700px) {
+      .page-header { padding: 36px 16px 24px; }
+      .page-header h1 { font-size: 2rem; }
+      .brand-nav { padding: 0 16px; overflow-x: auto; }
+      main { padding: 0 16px 60px; }
+      .brand-section { padding-top: 44px; }
+      .brand-section + .brand-section { margin-top: 48px; }
+      .video-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav" aria-label="Main">
+  <div class="site-nav-inner">
+    <a class="site-logo" href="index.html">Will Beller</a>
+    <ul class="site-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="for-founders.html">For Founders</a></li>
+      <li><a href="work.html" aria-current="page">My Work</a></li>
+    </ul>
+    <!-- TODO: booking link -->
+    <a class="btn btn-primary btn-sm" href="#">Book a call</a>
+  </div>
+</nav>
+
+<header class="page-header">
+  <h1>My Work</h1>
+  <p>Video production and creative strategy for DTC brands.</p>
+</header>
+
+<nav class="brand-nav">
+  <div class="brand-nav-inner">
+    <a href="#pelsbarn">Pelsbarn</a>
+    <a href="#katkin">KatKin</a>
+    <a href="#petlab-co">PetLab Co.</a>
+  </div>
+</nav>
+
+<main id="main"></main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span class="footer-name">Will Beller</span>
+    <ul class="footer-links">
+      <li><a href="mailto:wilhelm.beller@gmail.com">wilhelm.beller@gmail.com</a></li>
+      <!-- TODO: LinkedIn and First Strike links -->
+      <li><a href="#">LinkedIn</a></li>
+      <li><a href="#">First Strike</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+// ─────────────────────────────────────────────────────────────────────────────
+//  PORTFOLIO DATA
+//  Claude updates this when you add videos, roles, or descriptions.
+//
+//  roles:       tag pills shown under the brand name
+//  description: text block describing your work with this brand
+//  videos:      array of video entries (populated as you upload)
+//
+//  Available role tags:
+//    "Edited" | "Creative Strategy" | "Director" | "Producer"
+//    "Cinematography" | "Color Grade" | "Motion Graphics" | "Sound Design"
+// ─────────────────────────────────────────────────────────────────────────────
+const BRANDS = [
+  {
+    id: "pelsbarn",
+    name: "Pelsbarn",
+    roles: ["Head of Marketing", "Video Editor", "Creative Strategist"],
+    description: "I joined Pelsbarn as a Senior Video Editor before progressing into Creative Strategy and, most recently, into the role of Head of Marketing &amp; Brand. The work featured here spans my time as a Video Editor and Creative Strategist: a period defined by high-volume creative output, performance-led thinking, and a consistent hand in shaping the brand's visual identity.",
+    videos: [
+      { video_url: "https://youtube.com/shorts/6qRAQwt2bAI", title: "Pelsbarn | Video 1", tags: ["Video Editor"] },
+      { video_url: "https://youtube.com/shorts/lB-xWm1ZDxI", title: "Pelsbarn | Video 2", tags: ["Video Editor"] },
+      { video_url: "https://youtube.com/shorts/JwnLDOvhfSE", title: "Pelsbarn | Video 3", tags: ["Video Editor"] },
+      { video_url: "https://youtube.com/shorts/6cz8OVBu70Q", title: "Pelsbarn | Video 4", tags: ["Video Editor"] },
+      { video_url: "https://youtube.com/shorts/Kr1BIoq2mvY", title: "Pelsbarn | Video 5", tags: ["Video Editor"] },
+      { video_url: "https://youtube.com/shorts/Gwr0U9_YABk", title: "Pelsbarn | Video 6", tags: ["Video Editor"] },
+      { video_url: "https://youtube.com/shorts/aUse0K8mn7I", title: "Pelsbarn | Video 7", tags: ["Video Editor"] },
+      { video_url: "https://youtube.com/shorts/wvhu5fZGaAQ", title: "Pelsbarn | Video 8", tags: ["Video Editor"] },
+      { video_url: "https://youtube.com/shorts/OVeuYsC77VQ", title: "Pelsbarn | Video 9", tags: ["Video Editor"] }
+    ]
+  },
+  {
+    id: "katkin",
+    name: "KatKin",
+    roles: ["Freelance Agency Provider", "Video Editor", "Creative Strategist"],
+    description: "My work with KatKin has been delivered through my agency, FSVP. Over three years, we've provided their Meta Growth Team with video editing and creative consultancy, developing a number of long-running, best-performing ads throughout 2024 and 2025. The partnership is grounded in a deep understanding of their audience and a consistent track record of creative that converts.",
+    videos: [
+      { video_url: "https://youtube.com/shorts/r-MDqRWYN7A", title: "KatKin | Video 1", tags: ["Video Editor", "Creative Strategist"] },
+      { video_url: "https://youtube.com/shorts/h1XdsauvpEQ", title: "KatKin | Video 2", tags: ["Video Editor", "Creative Strategist"] },
+      { video_url: "https://youtube.com/shorts/abcW0B1EDtg", title: "KatKin | Video 3", tags: ["Video Editor", "Creative Strategist"] },
+      { video_url: "https://youtube.com/shorts/o8nFR5H9phA", title: "KatKin | Video 4", tags: ["Video Editor", "Creative Strategist"] },
+      { video_url: "https://youtube.com/shorts/d_lUACfDCXM", title: "KatKin | Video 5", tags: ["Video Editor", "Creative Strategist"] },
+      { video_url: "https://youtube.com/shorts/Fbz99fJmX7k", title: "KatKin | Video 6", tags: ["Video Editor", "Creative Strategist"] }
+    ]
+  },
+  {
+    id: "petlab-co",
+    name: "PetLab Co.",
+    roles: ["Video Editor", "Content Producer"],
+    description: "PetLab Co. was my introduction to the DTC eCommerce space, and a formative one. Working directly with the founder and Head of Innovation, I developed a series of high-performing ads that consistently ranked among the brand's top creative. It was an experience that sharpened my instincts for performance creative at scale and gave me a strong foundation in what moves the needle in DTC.",
+    videos: [
+      { video_url: "https://youtube.com/shorts/ybvUw7EqwhM", title: "PetLab Co. | Video 1", tags: ["Video Editor", "Content Producer"] },
+      { video_url: "https://youtube.com/shorts/DJwl6GcbWj0", title: "PetLab Co. | Video 2", tags: ["Video Editor", "Content Producer"] },
+      { video_url: "https://youtube.com/shorts/qqKdoMpB3Sc", title: "PetLab Co. | Video 3", tags: ["Video Editor", "Content Producer"] },
+      { video_url: "https://youtube.com/shorts/gYLfhS48JUk", title: "PetLab Co. | Video 4", tags: ["Video Editor", "Content Producer"] }
+    ]
+  }
+];
+// ─────────────────────────────────────────────────────────────────────────────
+
+const TAG_CLASSES = {
+  "Edited":                    "tag-edited",
+  "Video Editor":              "tag-edited",
+  "Creative Strategy":         "tag-creative-strategy",
+  "Creative Strategist":       "tag-creative-strategy",
+  "Director":                  "tag-director",
+  "Producer":                  "tag-producer",
+  "Content Producer":          "tag-producer",
+  "Head of Marketing":         "tag-head",
+  "Freelance Agency Provider": "tag-agency",
+  "Cinematography":            "tag-cinematography",
+  "Color Grade":               "tag-color-grade",
+  "Motion Graphics":           "tag-motion-graphics",
+  "Sound Design":              "tag-sound-design",
+};
+
+function tagClass(t) { return TAG_CLASSES[t] || "tag-default"; }
+
+// ── Render ────────────────────────────────────────────────────────────────────
+function render() {
+  const main = document.getElementById("main");
+  main.innerHTML = BRANDS.map(brand => {
+    // Roles row
+    const rolesHTML = brand.roles.length
+      ? brand.roles.map(t => `<span class="tag ${tagClass(t)}">${t}</span>`).join("")
+      : "";
+
+    const rolesRow = rolesHTML
+      ? `<div class="roles-row"><span class="roles-label">My role</span>${rolesHTML}</div>`
+      : `<div class="roles-row"><span class="roles-label" style="color:#2a2a2a">Role to be added</span></div>`;
+
+    // Description
+    const descHTML = brand.description
+      ? `<p class="brand-description">${brand.description}</p>`
+      : `<p class="brand-description placeholder">Description to be added.</p>`;
+
+    // Videos
+    let videosHTML;
+    if (brand.videos.length === 0) {
+      videosHTML = `<div class="videos-empty">Videos will appear here once uploaded.</div>`;
+    } else {
+      const cards = brand.videos.map(v => {
+        const cardTags = (v.tags || [])
+          .map(t => `<span class="tag ${tagClass(t)}">${t}</span>`)
+          .join("");
+        const embedHTML = (() => {
+          const url = v.video_url || "";
+          // Vimeo
+          const vimeo = url.match(/vimeo\.com\/(\d+)/);
+          if (vimeo) {
+            const id = vimeo[1];
+            return `<div class="lite-embed" data-src="https://player.vimeo.com/video/${id}?color=d4ff00&title=0&byline=0&portrait=0&autoplay=1" onclick="loadEmbed(this)">
+              <img src="https://vumbnail.com/${id}.jpg" alt="" loading="lazy">
+              <button class="play-btn" aria-label="Play"><svg viewBox="0 0 48 48" width="52" height="52"><circle cx="24" cy="24" r="23" fill="rgba(0,0,0,0.55)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/><polygon points="20,16 34,24 20,32" fill="#d4ff00"/></svg></button>
+            </div>`;
+          }
+          // YouTube
+          const yt = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/shorts\/)([A-Za-z0-9_-]{11})/);
+          if (yt) {
+            const id = yt[1];
+            return `<div class="lite-embed" data-src="https://www.youtube.com/embed/${id}?autoplay=1&rel=0" onclick="loadEmbed(this)">
+              <img src="https://i.ytimg.com/vi/${id}/hqdefault.jpg" alt="" loading="lazy">
+              <button class="play-btn" aria-label="Play"><svg viewBox="0 0 48 48" width="52" height="52"><circle cx="24" cy="24" r="23" fill="rgba(0,0,0,0.55)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/><polygon points="20,16 34,24 20,32" fill="#d4ff00"/></svg></button>
+            </div>`;
+          }
+          // Direct file
+          return `<video controls preload="metadata"${v.thumbnail_url ? ` poster="${v.thumbnail_url}"` : ""}><source src="${url}" type="video/mp4"></video>`;
+        })();
+        return `
+          <div class="card">
+            <div class="card-video-wrap">
+              ${embedHTML}
+            </div>
+          </div>`;
+      }).join("");
+      videosHTML = `<div class="video-grid">${cards}</div>`;
+    }
+
+    return `
+      <section class="brand-section" id="${brand.id}">
+        <div class="brand-header">
+          <h2 class="brand-name">${brand.name}</h2>
+          ${rolesRow}
+          ${descHTML}
+        </div>
+        ${videosHTML}
+      </section>`;
+  }).join("");
+}
+
+// ── Active nav highlight on scroll ───────────────────────────────────────────
+function updateNav() {
+  const sections = document.querySelectorAll(".brand-section");
+  const navLinks = document.querySelectorAll(".brand-nav a");
+  let current = "";
+
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 140) current = s.id;
+  });
+
+  navLinks.forEach(a => {
+    a.classList.toggle("active", a.getAttribute("href") === "#" + current);
+  });
+}
+
+function loadEmbed(el) {
+  const iframe = document.createElement("iframe");
+  iframe.src = el.dataset.src;
+  iframe.allow = "autoplay; fullscreen; picture-in-picture; accelerometer; clipboard-write; encrypted-media; gyroscope";
+  iframe.allowFullscreen = true;
+  el.innerHTML = "";
+  el.appendChild(iframe);
+}
+
+// Keep the brand nav sticking just under the site nav, which wraps on mobile
+function syncNavHeight() {
+  const nav = document.querySelector(".site-nav");
+  if (nav) document.documentElement.style.setProperty("--site-nav-h", nav.offsetHeight + "px");
+}
+
+render();
+syncNavHeight();
+window.addEventListener("resize", syncNavHeight);
+window.addEventListener("scroll", updateNav, { passive: true });
+updateNav();
+</script>
+
+</body>
+</html>
