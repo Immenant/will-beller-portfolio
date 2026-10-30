@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>For Founders | Will Beller</title>
+  <meta name="description" content="Paid Meta creative and growth for DTC brands. Creative Strategist and Creative Lead, specialist in pet brands.">
   <link rel="stylesheet" href="site.css">
   <style>
-    .page {
-      padding: 96px 0 112px;
-    }
+    section { padding: 104px 0; }
+    section + section { border-top: 1px solid var(--border); }
 
     .eyebrow {
       font-size: 0.72rem;
@@ -18,36 +18,276 @@
       margin-bottom: 20px;
     }
 
-    .page h1 {
-      font-size: clamp(2.6rem, 8vw, 5.5rem);
-      font-weight: 800;
-      letter-spacing: -0.045em;
-      line-height: 0.98;
+    .big {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 700;
+      letter-spacing: -0.035em;
+      line-height: 1.08;
+      max-width: 880px;
     }
 
-    .page h1 span { color: var(--accent); }
-
-    /* Holds the For Founders copy until will-beller-site-copy.md is added */
-    .copy-placeholder {
-      margin-top: 56px;
-      max-width: 760px;
-      padding: 48px 32px;
-      border: 1px dashed #333;
-      border-radius: var(--radius);
-      font-size: 1.05rem;
-      line-height: 1.7;
+    .lead {
+      margin-top: 24px;
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      color: #b8b8b8;
+      max-width: 680px;
+      line-height: 1.6;
     }
 
     .cta-row {
       display: flex;
       gap: 12px;
       flex-wrap: wrap;
+      margin-top: 36px;
+    }
+
+    /* ── Hero ── */
+    .hero { padding: 120px 0 104px; }
+
+    .hero h1 {
+      font-size: clamp(2.6rem, 7.5vw, 5.6rem);
+      font-weight: 800;
+      letter-spacing: -0.045em;
+      line-height: 0.98;
+      max-width: 1000px;
+    }
+
+    .hero h1 span { color: var(--accent); }
+
+    .diff {
+      margin-top: 56px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      gap: 12px 40px;
+      flex-wrap: wrap;
+      align-items: baseline;
+    }
+
+    .diff strong {
+      font-size: 1.15rem;
+      letter-spacing: -0.01em;
+    }
+
+    .metrics {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      list-style: none;
+    }
+
+    .metrics li {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 5px 12px;
+      border-radius: 100px;
+      border: 1px solid #3a3a3a;
+      color: #d0d0d0;
+    }
+
+    /* ── The Winner Loop ── */
+    .loop {
+      margin-top: 56px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      list-style: none;
+      counter-reset: step;
+    }
+
+    .loop li {
+      background: var(--bg);
+      padding: 32px 28px 36px;
+      counter-increment: step;
+    }
+
+    .loop li::before {
+      content: counter(step, decimal-leading-zero);
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent);
+      font-variant-numeric: tabular-nums;
+      margin-bottom: 18px;
+    }
+
+    .loop h3 { font-size: 1.15rem; letter-spacing: -0.01em; }
+
+    .loop p {
+      margin-top: 8px;
+      color: #a0a0a0;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* ── Services ── */
+    .services {
+      margin-top: 56px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .service {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 40px 36px;
+    }
+
+    .service h3 {
+      font-size: 1.6rem;
+      letter-spacing: -0.025em;
+    }
+
+    .service ul {
+      margin-top: 24px;
+      list-style: none;
+      display: grid;
+      gap: 14px;
+    }
+
+    .service li {
+      position: relative;
+      padding-left: 22px;
+      color: #c0c0c0;
+      line-height: 1.55;
+    }
+
+    .service li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.6em;
+      width: 8px;
+      height: 8px;
+      border-radius: 2px;
+      background: var(--accent);
+    }
+
+    .services-note {
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* ── Fit ── */
+    .fit {
+      margin-top: 40px;
+      list-style: none;
+      display: grid;
+      gap: 0;
+      max-width: 820px;
+    }
+
+    .fit li {
+      padding: 22px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      display: flex;
+      gap: 18px;
+      align-items: baseline;
+    }
+
+    .fit li::before {
+      content: "\2713";
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* ── About ── */
+    .about {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 56px;
+    }
+
+    .about-body p {
+      font-size: 1.1rem;
+      color: #c0c0c0;
+      line-height: 1.7;
+      max-width: 640px;
+    }
+
+    .about-body p + p { margin-top: 20px; }
+
+    .about-body .kicker {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    /* ── Testimonials ── */
+    .quotes {
       margin-top: 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .quote-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 36px 32px;
+    }
+
+    .quote-card blockquote {
+      font-size: 1.3rem;
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      line-height: 1.35;
+    }
+
+    .quote-card cite {
+      display: block;
+      margin-top: 20px;
+      font-style: normal;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    /* ── Final CTA ── */
+    .final {
+      background: var(--accent);
+      color: var(--accent-ink);
+      border-top: none !important;
+    }
+
+    .final .big { max-width: 760px; }
+
+    .final .btn-dark {
+      background: var(--accent-ink);
+      color: var(--accent);
+    }
+
+    .final .email {
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      align-self: center;
+    }
+
+    @media (max-width: 960px) {
+      .loop { grid-template-columns: repeat(2, 1fr); }
+      .about { grid-template-columns: 1fr; gap: 8px; }
     }
 
     @media (max-width: 700px) {
-      .page { padding: 64px 0 80px; }
-      .copy-placeholder { padding: 32px 20px; }
+      section { padding: 72px 0; }
+      .hero { padding: 64px 0 72px; }
+      .loop { grid-template-columns: 1fr; }
+      .loop li { padding: 26px 22px 28px; }
+      .services, .quotes { grid-template-columns: 1fr; }
+      .service { padding: 30px 24px; }
+      .quote-card { padding: 28px 24px; }
+      .cta-row .btn { flex: 1 1 100%; }
+      .final .email { flex: 1 1 100%; text-align: center; padding: 8px 0; }
     }
   </style>
 </head>
@@ -66,21 +306,152 @@
   </div>
 </nav>
 
-<main class="page">
-  <div class="wrap">
-    <p class="eyebrow">For Founders</p>
-    <h1>For Founders<span>.</span></h1>
+<main>
 
-    <div class="copy-placeholder">
-      <p class="ph">[For Founders copy from will-beller-site-copy.md goes here]</p>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">For Founders</p>
+      <h1>I find the ads that scale your brand on Meta<span>.</span></h1>
+      <p class="lead">Paid Meta creative and growth for DTC brands. I research the angles, write the hooks, brief and train the editors, and test until we find what scales. Specialist in pet brands.</p>
+      <div class="cta-row">
+        <!-- TODO: booking link -->
+        <a class="btn btn-primary" href="#">Book a call</a>
+        <a class="btn btn-ghost" href="work.html">See the work &rarr;</a>
+      </div>
+      <div class="diff">
+        <strong>Operator brain, creative hands.</strong>
+        <ul class="metrics" aria-label="What every creative decision is judged on">
+          <li>ROAS</li>
+          <li>Margin</li>
+          <li>AOV</li>
+          <li>RPV</li>
+          <li>Take rate</li>
+        </ul>
+      </div>
     </div>
+  </section>
 
-    <div class="cta-row">
-      <!-- TODO: booking link -->
-      <a class="btn btn-primary" href="#">Book a 20 min call</a>
-      <a class="btn btn-ghost" href="work.html">See my work &rarr;</a>
+  <!-- Approach -->
+  <section id="approach">
+    <div class="wrap">
+      <p class="eyebrow">How I find winners</p>
+      <h2 class="big">The Winner Loop</h2>
+      <p class="lead">Most creatives stop at "does it look good". I judge every creative decision on what it does to your numbers.</p>
+      <ol class="loop">
+        <li>
+          <h3>Research</h3>
+          <p>Customer language from reviews, comments and Reddit. What they actually say about the problem.</p>
+        </li>
+        <li>
+          <h3>Angles</h3>
+          <p>Lead with the problem, not the product. Sell the fix, not prevention.</p>
+        </li>
+        <li>
+          <h3>Hooks and scripts</h3>
+          <p>Multiple hooks per angle so tests read cleanly.</p>
+        </li>
+        <li>
+          <h3>Brief and build</h3>
+          <p>Tight briefs, trained editors, clean handover files.</p>
+        </li>
+        <li>
+          <h3>Test and judge</h3>
+          <p>A winner holds ROAS as spend grows, not one good day.</p>
+        </li>
+        <li>
+          <h3>Iterate</h3>
+          <p>Double down on winners, retire fatigued hooks, feed the pipeline.</p>
+        </li>
+      </ol>
     </div>
-  </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <div class="wrap">
+      <p class="eyebrow">Services</p>
+      <h2 class="big">Two ways to work together.</h2>
+      <div class="services">
+        <div class="service">
+          <h3>Creative Strategist</h3>
+          <ul>
+            <li>Customer research and angle development</li>
+            <li>Hooks, scripts and creator briefs</li>
+            <li>Testing plans and performance reviews (CTR, hook and hold rate, CPA, ROAS)</li>
+          </ul>
+        </div>
+        <div class="service">
+          <h3>Creative Lead</h3>
+          <ul>
+            <li>Runs the full creative engine with your team or mine (First Strike)</li>
+            <li>Briefing, training and QA of editors and creators</li>
+            <li>Weekly cadence: briefs Monday, delivery Friday</li>
+            <li>Creative tied to margin, AOV and take rate, not just output volume</li>
+          </ul>
+        </div>
+      </div>
+      <p class="services-note">Fractional or project based. Backed by First Strike, my small creative agency, for production capacity.</p>
+    </div>
+  </section>
+
+  <!-- Fit -->
+  <section id="fit">
+    <div class="wrap">
+      <p class="eyebrow">Who I'm a fit for</p>
+      <h2 class="big">Is this you?</h2>
+      <ul class="fit">
+        <li><span>DTC brands spending <span class="ph">[£X+/month]</span> on Meta</span></li>
+        <li><span>Brands with a product that works but ads that have plateaued</span></li>
+        <li><span>Pet brands especially</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="wrap about">
+      <div>
+        <p class="eyebrow">About</p>
+        <h2 class="big">Hi, I'm Will.</h2>
+      </div>
+      <div class="about-body">
+        <p>I started out editing DTC ads at PetLab Co., working with the founder and learning what actually converts. From there I joined Pelsbarn, moving from Senior Video Editor into Creative Strategy and then Head of Marketing and Brand.</p>
+        <p>Now I run First Strike and lead creative for brands like KatKin. I'm based in London.</p>
+        <p class="kicker">I think like an operator. If the creative doesn't move the numbers, it isn't working.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials">
+    <div class="wrap">
+      <p class="eyebrow">What people say</p>
+      <div class="quotes">
+        <figure class="quote-card">
+          <blockquote class="ph">[Testimonial from a founder or strategist]</blockquote>
+          <cite><span class="ph">[Name]</span>, <span class="ph">[Role]</span>, KatKin</cite>
+        </figure>
+        <figure class="quote-card">
+          <blockquote class="ph">[Testimonial from a founder or strategist]</blockquote>
+          <cite><span class="ph">[Name]</span>, <span class="ph">[Role]</span>, <span class="ph">[Brand]</span></cite>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="final">
+    <div class="wrap">
+      <h2 class="big">Ads plateaued? Let's find your next winner.</h2>
+      <div class="cta-row">
+        <!-- TODO: booking link -->
+        <a class="btn btn-dark" href="#">Book a call</a>
+        <a class="email" href="mailto:wilhelm.beller@gmail.com">wilhelm.beller@gmail.com</a>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <footer class="site-footer">
