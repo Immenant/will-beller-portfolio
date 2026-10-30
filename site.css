@@ -159,6 +159,18 @@ a { color: inherit; }
   }
 
   .site-links a { font-size: 0.85rem; }
+
+  /* Bigger tap targets on touch screens; nav padding shrinks to keep the same look */
+  .site-nav-inner { padding-top: 2px; padding-bottom: 0; row-gap: 0; }
+
+  .site-logo,
+  .site-links a,
+  .footer-links a {
+    display: inline-block;
+    padding: 12px 0;
+  }
+
+  .footer-links { gap: 0 24px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
